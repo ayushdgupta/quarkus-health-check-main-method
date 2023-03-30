@@ -33,6 +33,7 @@ public class DbReadinessHealthCheck implements HealthCheck {
               "Abe db connection mai error hai parameters check kr jake. erro -- "
                   + throwables.getMessage())
           .down()
+          .withData("error", throwables.getMessage())
           .build();
     }
   }

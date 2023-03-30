@@ -9,6 +9,7 @@ import javax.ws.rs.core.MediaType;
 
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
+import com.guptaji.entity.CommentApiEntity;
 import com.guptaji.entity.PostJsonApiEntity;
 
 @RegisterRestClient(baseUri = "https://jsonplaceholder.typicode.com")
@@ -18,4 +19,9 @@ public interface PostApiClient {
   @Path("/posts")
   @Produces(MediaType.APPLICATION_JSON)
   List<PostJsonApiEntity> getPostJsonApiData();
+
+  @GET
+  @Path("/comments")
+  @Produces(MediaType.APPLICATION_JSON)
+  List<CommentApiEntity> getCommentApiData();
 }

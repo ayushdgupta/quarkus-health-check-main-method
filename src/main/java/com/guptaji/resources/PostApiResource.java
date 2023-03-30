@@ -33,4 +33,11 @@ public class PostApiResource {
   public Response getAllPostData() {
     return Response.ok(postApiClient.getPostJsonApiData()).build();
   }
+
+  @GET
+  @Path("/comment")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response getAllCommentData() {
+    return Response.ok(postApiClient.getCommentApiData()).build();
+  }
 }

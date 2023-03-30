@@ -11,7 +11,7 @@ quarkus:
   datasource:
     db-kind: mysql
     username: root
-    password: *****
+    password: Ayushvio25@
     jdbc:
       url: jdbc:mysql://localhost:3306/studen_db
       max-size: 16
