@@ -11,7 +11,20 @@ quarkus:
   datasource:
     db-kind: mysql
     username: root
-    password: Ayushvio25@
+    password: *****
     jdbc:
       url: jdbc:mysql://localhost:3306/studen_db
       max-size: 16
+  rest-client:
+    "com.guptaji.proxyInterface.PostApiClient2":
+      url: https://jsonplaceholder.typicode.com
+    microprofile-config-key:                      # defining a config key to provide base url
+      url: https://jsonplaceholder.typicode.com
+
+# standard microprofile annotation way
+com:
+  guptaji:
+    proxyInterface:
+      PostApiClient3/mp-rest/url: https://jsonplaceholder.typicode.com
+
+

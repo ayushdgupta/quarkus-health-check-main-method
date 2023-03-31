@@ -10,6 +10,9 @@ import javax.ws.rs.core.Response;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import com.guptaji.proxyInterface.PostApiClient;
+import com.guptaji.proxyInterface.PostApiClient2;
+import com.guptaji.proxyInterface.PostApiClient3;
+import com.guptaji.proxyInterface.PostApiClient4ConfigKey;
 
 @Path("/postApi")
 public class PostApiResource {
@@ -28,6 +31,12 @@ public class PostApiResource {
 
   @Inject @RestClient public PostApiClient postApiClient;
 
+  @Inject @RestClient public PostApiClient2 postApiClient2;
+
+  @Inject @RestClient public PostApiClient3 postApiClient3;
+
+  @Inject @RestClient public PostApiClient4ConfigKey postApiClient4ConfigKey;
+
   @GET
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAllPostData() {
@@ -39,5 +48,28 @@ public class PostApiResource {
   @Produces(MediaType.APPLICATION_JSON)
   public Response getAllCommentData() {
     return Response.ok(postApiClient.getCommentApiData()).build();
+  }
+
+  // calling the post API and provide baseURI from application.yaml using package name
+  @GET
+  @Path("/postAPI2")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response getAllPostDataFromPostApi2() {
+    return Response.ok(postApiClient2.getPostJsonApi2Data()).build();
+  }
+
+  // Standard Microprofile annotations
+  @GET
+  @Path("/postAPI3")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response getAllPostDataFromPostApi3() {
+    return Response.ok(postApiClient3.getPostJsonApi3Data()).build();
+  }
+
+  @GET
+  @Path("/postAPI4ConfigKey")
+  @Produces(MediaType.APPLICATION_JSON)
+  public Response getAllPostDataFromPostApi4() {
+    return Response.ok(postApiClient4ConfigKey.getPostJsonApi4Data()).build();
   }
 }
